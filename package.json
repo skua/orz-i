@@ -1,0 +1,13 @@
+{
+  "name": "orz-i",
+  "description": "orz-i.",
+  "version": "0.0.1",
+  "author": {
+    "name": "skua",
+    "email": "i@f2e.it"
+  },
+  "homepage": "http://orz-i.com" ,
+  "engines": {
+    "node": ">= 0.10.0"
+  }
+}
