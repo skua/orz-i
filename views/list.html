@@ -5,7 +5,7 @@
 {% block content %}
   <h1>New Post</h1>
   <p>Create a new post.</p>
-  <strong>{{ posts.length }}</strong>
+  <strong>{{ post.name }}</strong>
   <form action="/post" method="post">
     <p><input type="text" placeholder="Title" name="title"></p>
     <p><textarea placeholder="Contents" name="body"></textarea></p>

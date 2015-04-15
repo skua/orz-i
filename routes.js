@@ -4,25 +4,27 @@
 var parse = require('co-body');
 var render = require('./lib/render');
 
-
-
 //db 
 
 // Set up monk
-//var monk = require('monk');
-//var wrap = require('co-monk');
-//var db = monk('localhost/koaBlog');
+var monk = require('monk');
+var wrap = require('co-monk');
 
-// Wrap monk in generator goodness
-//var posts = wrap(db.get('posts'));
+// 链接mongo
+//local 库名
+//testData 集合名称
+
+var db = monk('localhost/local');
+ 
+var testData = wrap(db.get('testData'));
+  testData.find({}, function(err, docs) {
+   console.log(docs);
+})
 
 
 var sign = require('./lib/sign.js');
 
 //console.log(sign('jsapi_ticket', 'http://example.com'));
-
-
-
 
 // And now... the route definitions
 /**
@@ -38,7 +40,13 @@ module.exports.index = function *index() {
 };
 
 module.exports.list = function *list() {
-  this.body = yield render('list');
+  //this.body = yield render('list');
+
+ var post = yield testData.findOne({_id:"552c8cd2f38af5760719ac35"});
+  //if (!post) this.throw(404, 'invalid post id');
+  this.body = yield render('list', { post: post });
+
+
 };
 
 module.exports.weixinapi = function *weixinapi() {
