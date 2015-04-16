@@ -1,87 +1,90 @@
 <html>
-<head>
-  <title>{% block title %}Blog{% endblock %}</title>
-  <meta name='description' content='{% block description %}orz-i{% endblock %}'>
-  <meta name="keywords" content="{% block keywords %}orz-i{% endblock %}"/>
-  {% block style %}
-  <link href="http://7ktowk.com1.z0.glb.clouddn.com/wp-content/themes/Android/css/bootstrap.min.css" rel="stylesheet">
-  <link href="http://55u.me/css/main.css?v=1" rel="stylesheet">
-  {% endblock %}
-</head>
-<body>
-    {% block content %}
-      <p>Missing content!</p>
-    {% endblock %}
-<script src="http://t.orz-i.com/weixinapi"></script>
-  <!--- 严格依照微信JS-SDK说明文档开发 http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html -->
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script type="text/javascript">
-wx.config({
-  debug: wx_config['debug'],
-  appId: wx_config['appId'],
-  timestamp: wx_config['timestamp'],
-  nonceStr: wx_config['nonceStr'],
-  signature: wx_config['signature'],
-  jsApiList: [
-            'chooseImage',
-            'previewImage',
-            'uploadImage',
-            'downloadImage',
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage',
-            'onMenuShareQQ',
-            'onMenuShareWeibo',
-            'openLocation',
-            'getLocation',
-            'hideOptionMenu',
-            'showOptionMenu',
-            'translateVoice',
-            'startRecord',
-            'stopRecord',
-            'onRecordEnd',
-            'playVoice',
-            'pauseVoice',
-            'stopVoice',
-            'uploadVoice',
-            'downloadVoice'
-      ]
-});
-</script>
-<script type="text/javascript">
-
-var wx_permissions = {};
-function load_wx(){
-    wx.ready(function () {
+    <head>     
+        <meta charset="utf-8">
+        <meta name='description' content='{% block description %}orz-i{% endblock %}'>
+        <meta name="keywords" content="{% block keywords %}orz-i{% endblock %}"/>    
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <title>{% block title %}Blog{% endblock %}</title>
+        {% block style %}
+            <link href="http://7ktowk.com1.z0.glb.clouddn.com/wp-content/themes/Android/css/bootstrap.min.css" rel="stylesheet">
+            <link href="http://55u.me/css/main.css?v=1" rel="stylesheet">
+        {% endblock %}
+    </head>
+    <body>
+        {% block content %}
+            <p>Missing content!</p>
+        {% endblock %}
+        <script src="http://t.orz-i.com/weixinapi"></script>
+        <!--- 严格依照微信JS-SDK说明文档开发 http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html -->
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script type="text/javascript">
+        wx.config({
+        debug: wx_config['debug'],
+        appId: wx_config['appId'],
+        timestamp: wx_config['timestamp'],
+        nonceStr: wx_config['nonceStr'],
+        signature: wx_config['signature'],
+        jsApiList: [
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'openLocation',
+        'getLocation',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onRecordEnd',
+        'playVoice',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice'
+        ]
+        });
+        </script>
+        <script type="text/javascript">
+        var wx_permissions = {};
+        function load_wx(){
+        wx.ready(function () {
         
         wx.checkJsApi({
-          jsApiList: [
-            'chooseImage',
-            'previewImage',
-            'uploadImage',
-            'downloadImage',
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage',
-            'onMenuShareQQ',
-            'onMenuShareWeibo',
-            'openLocation',
-            'getLocation',
-            'hideOptionMenu',
-            'showOptionMenu',
-            'translateVoice',
-            'startRecord',
-            'stopRecord',
-            'onRecordEnd',
-            'playVoice',
-            'pauseVoice',
-            'stopVoice',
-            'uploadVoice',
-            'downloadVoice'
-          ],
-          success: function (res) {
-            wx_permissions = res['checkResult'];
-          }
+        jsApiList: [
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'openLocation',
+        'getLocation',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onRecordEnd',
+        'playVoice',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice'
+        ],
+        success: function (res) {
+        wx_permissions = res['checkResult'];
+        }
         });
-    
+        
         // wx.onMenuShareAppMessage({
         //   title: shareTitle,
         //   desc: descContent,
@@ -100,7 +103,7 @@ function load_wx(){
         //     _gaq.push(['_trackEvent', 'error', 'weixinjsapi', 'appmessage', JSON.stringify(res)]);
         //   }
         // });
-    
+        
         // wx.onMenuShareTimeline({
         //   title: shareTitle,
         //   link: message_link,
@@ -118,7 +121,7 @@ function load_wx(){
         //     _gaq.push(['_trackEvent', 'error', 'weixinjsapi', 'timeline', JSON.stringify(res)]);
         //   }
         // });
-    
+        
         // wx.onMenuShareQQ({
         //   title: shareTitle,
         //   desc: descContent,
@@ -140,7 +143,7 @@ function load_wx(){
         //     _gaq.push(['_trackEvent', 'error', 'weixinjsapi', 'QQ', JSON.stringify(res)]);
         //   }
         // });
-    
+        
         // wx.onMenuShareWeibo({
         //   title: shareTitle,
         //   desc: descContent,
@@ -164,24 +167,23 @@ function load_wx(){
         // });
         
         //微信全局推送触发事件(测试代码)
-
-    });
-}
-load_wx();
-wx.error(function (res) {
-  _gaq.push(['_trackEvent', 'error', 'weixinjsapi', 'initial', res.errMsg, 'false']);
-});
-/*
-   * 注意：
-   * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
-   * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
-   * 3. 完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
-   *
-   * 如有问题请通过以下渠道反馈：
-   * 邮箱地址：weixin-open@qq.com
-   * 邮件主题：【微信JS-SDK反馈】具体问题
-   * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
-*/    
-</script>
-</body>
+        });
+        }
+        load_wx();
+        wx.error(function (res) {
+        _gaq.push(['_trackEvent', 'error', 'weixinjsapi', 'initial', res.errMsg, 'false']);
+        });
+        /*
+        * 注意：
+        * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+        * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+        * 3. 完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+        *
+        * 如有问题请通过以下渠道反馈：
+        * 邮箱地址：weixin-open@qq.com
+        * 邮件主题：【微信JS-SDK反馈】具体问题
+        * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+        */
+        </script>
+    </body>
 </html>
