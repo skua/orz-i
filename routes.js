@@ -42,7 +42,7 @@ module.exports.index = function *index() {
 module.exports.list = function *list() {
   //this.body = yield render('list');
 
- var post = yield testData.findOne({_id:"552c8cd2f38af5760719ac35"});
+ var post = yield testData.findOne({post_id:"1239"});
   //if (!post) this.throw(404, 'invalid post id');
   this.body = yield render('list', { post: post });
 

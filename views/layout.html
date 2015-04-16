@@ -1,20 +1,17 @@
 <html>
 <head>
   <title>{% block title %}Blog{% endblock %}</title>
+  <meta name='description' content='{% block description %}orz-i{% endblock %}'>
+  <meta name="keywords" content="{% block keywords %}orz-i{% endblock %}"/>
   {% block style %}
-  <link rel="stylesheet" href="{{ host }}/mobile/css/home.css"  />
-{% endblock %}
- 
-
-
+  <link href="http://7ktowk.com1.z0.glb.clouddn.com/wp-content/themes/Android/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://55u.me/css/main.css?v=1" rel="stylesheet">
+  {% endblock %}
 </head>
 <body>
-  <section id="content">
     {% block content %}
       <p>Missing content!</p>
     {% endblock %}
-  </section>
-
 <script src="http://t.orz-i.com/weixinapi"></script>
   <!--- 严格依照微信JS-SDK说明文档开发 http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html -->
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
