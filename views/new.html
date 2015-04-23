@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}New Post{% endblock %}
+
+{% block content %}
+  <h1>New Post</h1>
+  <p>Create a new post.</p>
+  <form action="/post" method="post">
+  	<p><input type="text" placeholder="post_id" name="post_id"></p>
+  	<p><input type="text" placeholder="post_author" name="post_author"></p>
+  	<p><input type="text" placeholder="post_date" name="post_date"></p>
+    <p><textarea placeholder="post_content" name="post_content"></textarea></p>
+  	<p><input type="text" placeholder="post_title" name="post_title"></p>
+  	<p><input type="text" placeholder="post_status" name="post_status"></p>
+  	<p><input type="text" placeholder="post_modified" name="post_modified"></p>
+  	<p><input type="text" placeholder="post_url" name="post_url"></p>
+    <p><input type="text" placeholder="post_description" name="post_description"></p>
+    <p><input type="text" placeholder="post_keywords" name="post_keywords"></p>
+    <p><input type="submit" value="Create"></p>
+  </form>
+
+{% endblock %}

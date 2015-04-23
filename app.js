@@ -11,6 +11,9 @@ app.use(logger());
 var routes = require('./routes.js');
 
 
+var host = "http://55u.me";
+
+
 //var sign = require('./lib/sign.js');
 
 //console.log(sign('jsapi_ticket', 'http://example.com'));
@@ -30,6 +33,9 @@ var routes = require('./routes.js');
 
 app.use(route.get('/', routes.index));
 app.use(route.get('/post/list', routes.list));
+app.use(route.get('/post/new', routes.add));
+app.use(route.post('/post', routes.create));
+app.use(route.get('/post/:id', routes.show));
 
 app.use(route.get('/weixinapi',routes.weixinapi));
  
