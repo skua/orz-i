@@ -44,8 +44,8 @@
 						<div>
 							{% autoescape false %}
 							{{ post.post_content }}
-                            <a> hebe {{ post.post_id }}</a>
-						
+                           <!--  <a> hebe {{ post.post_id }}</a> -->
+						<a href="/post/show/{{ post.post_id }}">下一篇</a>
 
 						{% endautoescape %}
 					</div>
