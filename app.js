@@ -35,9 +35,11 @@ app.use(route.get('/', routes.index));
 app.use(route.get('/post/list', routes.list));
 app.use(route.get('/post/new', routes.add));
 app.use(route.post('/post', routes.create));
-app.use(route.get('/post/:id', routes.show));
+app.use(route.get('/post/show/:id', routes.show));
 
-app.use(route.get('/weixinapi',routes.weixinapi));
+app.use(route.get('/post/wx', routes.wx));
+
+//app.use(route.get('/weixinapi',routes.weixinapi));
  
 app.listen(3443);
 

@@ -1,65 +1,10 @@
 {% extends 'layout.html' %}
-{% block title %}{{ post.post_title }}{% endblock %}
-{% block description %}{{ post.post_description }}{% endblock %}
-{% block keywords %}{{ post.post_keywords }}{% endblock %}
+
 {% block content %}
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">{ME:55u}</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					
-<!-- 					<li><a href="http://55u.me/category/life" >不写代码的日子</a></li>
-					<li><a href="http://55u.me/category/work" >写代码的日子</a></li> -->
-					<li><a href="#about">ReadMe</a></li>
-					
-				</ul>
-<!-- 				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other<span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-						</ul>
-					</li>
-				</ul> -->
-				</div><!--/.nav-collapse -->
-			</div>
-		</nav>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="post">
-						<h2><a href="#">{{ post.post_title }}</a></h2>
-						<div class="time"><p>{{ post.post_date }}</p></div>
-						<div>
-							{% autoescape false %}
-							{{ post.post_content }}
-                           <!--  <a> hebe {{ post.post_id }}</a> -->
-						<a href="/post/show/{{ post.post_id }}">下一篇</a>
-			<!-- 			<div><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx968f0697f984ba93&redirect_uri=http%3a%2f%2ft.orz-i.com%2fpost%2fshow%2f6&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">aaaa</a></div>
- -->
-						{% endautoescape %}
-					</div>
-				</div>
-			</div>
-		</div>
-		<footer class="bs-docs-footer" role="contentinfo">
-			<div class="container">
-				<p>by <a href="https://55u.me" target="_blank">{{ post.post_author }}</a> .</p>
-				
-			</div>
-		</footer>
-	</div>
+
+		<div><a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx968f0697f984ba93&redirect_uri=http%3a%2f%2ft.orz-i.com%2fpost%2fwx&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">aaaa</a></div>
+
+
 	        <!--- 严格依照微信JS-SDK说明文档开发 http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html -->
         <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
         <script type="text/javascript">

@@ -10,6 +10,10 @@ var render = require('./lib/render');
 var monk = require('monk');
 var wrap = require('co-monk');
 
+
+
+var koa = require('koa');
+var app = module.exports = koa();
 // 链接mongo
 //local 库名
 //testData 集合名称
@@ -25,11 +29,12 @@ testData.find({}, function(err, docs) {
 var sign = require('./lib/sign.js');
 
 //console.log(sign('jsapi_ticket', 'http://example.com'));
-
+//console.log(sign('sM4AOVdWfPE4DxkXGEs8VJqSWLLQkyTACRLmRAJ4qPPf7fKHx_BibTiXcqIGgcCdyE47u6Dwau45ZfuNOKysMg', 'http://t.orz-i.com'));
 // And now... the route definitions
 /**
  * Post listing.
  */
+
 
 
 module.exports.index = function * index() {
@@ -67,20 +72,44 @@ module.exports.show = function * show(id) {
       break;
     }
   }
+
+
+
   if (!post) this.
   throw (404, 'invalid post id');
   this.body = yield render('show', {
     post: post
+
   });
 };
 
 
 
+module.exports.add = function * add() {
+  this.body = yield render('new');
+};
+
 /**
  * Show creation form.
  */
-module.exports.add = function * add() {
-  this.body = yield render('new');
+module.exports.wx = function * wx() {
+  url = 'http://t.orz-i.com' + this.req.url
+  wxSign = sign('sM4AOVdWfPE4DxkXGEs8VJqSWLLQkyTACRLmRAJ4qPPf7fKHx_BibTiXcqIGgcCdyE47u6Dwau45ZfuNOKysMg', url);
+
+  this.body = yield render('wx', {
+    sign: wxSign
+  });
+
+
+  // app.get('https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx968f0697f984ba93&secret=4ebe9326c709b80b7df7ee4639cd1d2c&code=03166226e7e8eedf90f7f4b3439b161O&grant_type=authorization_code', function(req, res) {
+
+  //   console.log(req);
+
+  // });
+
+  //console.log(url);
+
+
 };
 
 /**
@@ -93,18 +122,3 @@ module.exports.create = function * create() {
   this.redirect('/');
 };
 
-
-
-module.exports.weixinapi = function * weixinapi() {
-  //var wx_config={debug:false,appId:'wx5d35652f96506a51',timestamp:1428375278,nonceStr:'kXHcVKQiR7GRtdoDtx',signature: 'd17ca4ab1d97ed9d556d94039d798179260150f8'};
-  var wx_sign = sign('sM4AOVdWfPE4DxkXGEs8VF5kYx3BiX1JlFvmHFJiZSEdEU2KjnAldDihoCtf-VbVbiBZgd-WQGYO3Mi_TQVV7A', 'http://t.orz-i.com/');
-  var wx_config = "var wx_config= {debug:true," +
-    "appId:'wx37d3b2dac43a589a',timestamp:" +
-    wx_sign.timestamp +
-    ",nonceStr:'" +
-    wx_sign.nonceStr +
-    "',signature: '" +
-    wx_sign.signature +
-    "'};"
-  this.body = wx_config;
-};
