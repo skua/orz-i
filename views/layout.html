@@ -20,6 +20,46 @@
 
         <script src="http://cdn.orz-i.com/public/jquery-2.1.3.min.js"></script>
         <script src="http://cdn.orz-i.com/public/bootstrap.min.js"></script>
+
+
+        <script type="text/javascript">
+
+$(document).ready(function() {
+    $(".btn").click(function() {
+        var storage = window.localStorage;
+        orz = JSON.parse(storage.getItem("orz")) || null;
+
+        if ( !! orz) {
+            alert("您已经领取过了！鸡和马为" + orz.codes);
+            return false;
+        } else {
+            var data = {};
+            data.mail = $(".mail").val();
+            data.name = $(".name").val();
+
+            if (data.mail != "" && data.name != "") {
+
+                $.get('/mail', data, function(response) {
+                    if ( !! response.msg) {
+                        alert(response.msg);
+                    } else {
+                        storage.setItem("orz", JSON.stringify(response));
+                        alert("成功领取！鸡和马为" + response.codes);
+                    }
+                });
+
+            } else {
+
+               alert("信息不全！");
+            }
+
+
+
+        }
+    });
+
+});
+        </script>
         
     </body>
 </html>
