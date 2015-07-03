@@ -1,15 +1,12 @@
 {
   "name": "orz-i",
   "description": "orz-i.",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "author": {
     "name": "skua",
     "email": "i@f2e.it"
   },
   "homepage": "http://orz-i.com",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
   "dependencies": {
     "co": "^3.0.0",
     "co-body": "0.0.1",
@@ -20,6 +17,7 @@
     "swig": "^1.2.2",
     "monk": "^0.8.1",
     "co-monk":"^1.0.0",
-    "jssha": "^1.5.0"
+    "jssha": "^1.5.0",
+    "mongoose": "4.0.6"
   }
 }

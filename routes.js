@@ -19,37 +19,37 @@ var secret = "4ebe9326c709b80b7df7ee4639cd1d2c";
 
 var _url = "http://io.orz-i.com";
 
-// 链接mongo
-//local 库名
-//testData 集合名称
 
-var db = monk('localhost/local');
+var mongoose = require('mongoose');
+var db = mongoose.createConnection('mongodb://skua:55ux5z@127.0.0.1:27017/seed');
 
-var test = wrap(db.get('test'));
-test.find({}, function(err, docs) {
-  console.log(docs);
-})
+db.on('error', console.error.bind(console, '连接错误:'));
+
+var skuaSchema = mongoose.Schema({
+  mail: String,
+  name: String,
+  codes: String
+});
+
+var skuaModel = db.model('skua', skuaSchema);
+
+// 随机字符串产生函数
+var createNonceStr = function() {
+  return Math.random().toString(36).substr(2, 15);
+};
+
+// 时间戳产生函数
+var createTimeStamp = function() {
+  return parseInt(new Date().getTime() / 1000) + '';
+};
 
 
-
-
-  // 随机字符串产生函数
-  var createNonceStr = function() {
-    return Math.random().toString(36).substr(2, 15);
-  };
-
-  // 时间戳产生函数
-  var createTimeStamp = function () {
-    return parseInt(new Date().getTime() / 1000) + '';
-  };
-
-
-    // 计算签名
-  var calcSignature = function (ticket, noncestr, ts, url) {
-    var str = 'jsapi_ticket=' + ticket + '&noncestr=' + noncestr + '&timestamp='+ ts +'&url=' + url;
-    shaObj = new jsSHA(str, 'TEXT');
-    return shaObj.getHash('SHA-1', 'HEX');
-  }
+// 计算签名
+var calcSignature = function(ticket, noncestr, ts, url) {
+  var str = 'jsapi_ticket=' + ticket + '&noncestr=' + noncestr + '&timestamp=' + ts + '&url=' + url;
+  shaObj = new jsSHA(str, 'TEXT');
+  return shaObj.getHash('SHA-1', 'HEX');
+}
 
 
 // // 获取微信签名所需的access_token
@@ -118,14 +118,14 @@ test.find({}, function(err, docs) {
 
 
 
-module.exports.index = function * index() {
+module.exports.index = function* index() {
   this.body = yield render('index');
 
 };
 
 
 
-module.exports.mail = function * mail() {
+module.exports.mail = function* mail() {
 
   function randomString(len) {　　
     len = len || 20;　　
@@ -149,7 +149,8 @@ module.exports.mail = function * mail() {
     data.mail = query.mail;
     data.name = query.name;
     data.codes = codes;
-    yield test.insert(data);
+    var skuaEntity = new skuaModel(data);
+    skuaEntity.save();
     this.body = data;
   }
 
@@ -157,15 +158,23 @@ module.exports.mail = function * mail() {
 
 
 
-module.exports.list = function * list() {
-  var postList = yield test.find({});
+module.exports.list = function* list() {
+
+  var postList = {};
+
+  yield skuaModel.find({}, function(err, docs) {
+    postList = docs;
+  });
+
   this.body = yield render('list', {
     posts: postList
   });
+
+
 };
 
 
 
-module.exports.aly = function * aly() {
+module.exports.aly = function* aly() {
   this.body = yield render('aly');
 };
