@@ -17,8 +17,6 @@ var https = require('https');
 var appid = "wx968f0697f984ba93";
 var secret = "4ebe9326c709b80b7df7ee4639cd1d2c";
 
-var _url = "http://io.orz-i.com";
-
 
 var mongoose = require('mongoose');
 var db = mongoose.createConnection('mongodb://skua:55ux5z@127.0.0.1:27017/seed');
@@ -145,7 +143,12 @@ module.exports.mail = function* mail() {
   if (mailList.indexOf(query.mail) == -1) {
     data.msg = "不符合要求";
     this.body = data;
-  } else {
+  }
+  if(query.name.length > 8){
+    data.msg = "名字长度不正确";
+    this.body = data;
+  }
+   else {
     data.mail = query.mail;
     data.name = query.name;
     data.codes = codes;

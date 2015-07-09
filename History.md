@@ -12,18 +12,18 @@ orz-i 数据格式只保留wp之前重要字段
 * post_title：标题
 * post_status：文章状态（publish/auto-draft/inherit等）
 * post_modified：修改时间
-* post_url：URL地址
+* post_url：URL地址 同时作为页面的key
 * post_description：用于seo的描述/微信描述
 * post_keywords：用于seo的关键词 
 * post_wximg：用于微信缩略图
 
 ==================
 
-七牛同步图片数据
-静态文件cdn.orz-i.com
+*七牛同步图片数据
+*静态文件cdn.orz-i.com
 
 ==================
 
-启用PM2管理服务
-改为io.js
-review文章删除了一些清理由于几次改版迁移产生的无用class和一些行内样式标签
+*启用PM2管理服务
+*改为io.js
+*review文章删除了一些清理由于几次改版迁移产生的无用class和一些行内样式标签
