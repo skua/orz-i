@@ -140,11 +140,12 @@ module.exports.mail = function* mail() {
   var data = {}
 
   var mailList = ["i@55u.me", "i@f2e.it"];
+
   if (mailList.indexOf(query.mail) == -1) {
     data.msg = "不符合要求";
     this.body = data;
   }
-  if(query.name.length > 8){
+  else if(query.name.length > 8){
     data.msg = "名字长度不正确";
     this.body = data;
   }
