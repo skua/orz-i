@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}Node.js{% endblock %}
+
+{% block content %}
+
+<h1>名单列表</h1>
+  <p>共计<strong>{{ posts.length }}</strong> 条</p>
+  
+  <ul id="posts">
+    {% for post in posts %}
+      <li>
+        <h2>{{ post.name }}</h2>
+        
+        <p>{{ post.codes }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
