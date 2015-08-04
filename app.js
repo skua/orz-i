@@ -3,17 +3,11 @@ var _ = require('lodash');
 var util = require('util');
 var path = require('path');
 var swig = require('swig');
-
 var koaBody = require('koa-body');
 var router = require('koa-router');
 var config = require('./config');
-
-
 var request = require('request');
-
 var support = require('./support');
-
-
 var service = require('./modules/test/service');
 var config = require('./config');
 var sign = require('./support/sign');
@@ -131,9 +125,7 @@ app.use(function*(next) {
 });
 
 
-
 app.use(router(app));
-
 
 // 遍历目录加载路由模块
 support.walk(__dirname, function(error, result) {
@@ -145,34 +137,7 @@ support.walk(__dirname, function(error, result) {
 });
 
 
-
 app.listen(config.port, function() {
   console.log("连接成功！");
 });
 
-
-// app.use(logger());
-
-// // route middleware
-// var routes = require('./routes.js');
-
-
-// var host = "http://55u.me";
-
-
-
-// app.use(route.get('/', routes.index));
-
-
-// app.use(route.get('/list', routes.list));
-
-// app.use(route.get('/pts', routes.pts));
-// app.use(route.get('/qr', routes.qr));
-
-
-// app.use(route.get("/mail", routes.mail));
-
-
-// app.listen(3443);
-
-// console.log("连接成功！");

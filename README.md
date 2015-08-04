@@ -17,6 +17,8 @@
 
 orz-i/config/index.js
 
+
+```js
 module.exports = {
   // 服务端口
   port: 8888,
@@ -40,3 +42,4 @@ module.exports = {
   	collection:" mongo collection" //mongo 集合
   }
 }
+```
