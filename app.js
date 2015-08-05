@@ -14,6 +14,8 @@ var sign = require('./support/sign');
 var fs = require('fs');
 var path = require('path');
 var _ = require('lodash');
+var cluster = require('cluster');
+var cpus = require('os').cpus();
 
 
 
@@ -137,7 +139,18 @@ support.walk(__dirname, function(error, result) {
 });
 
 
-app.listen(config.port, function() {
-  console.log("连接成功！");
-});
+
+// 启动服务器
+if (cluster.isMaster) {
+  for (var i = 0; i < cpus.length; i++) {
+    cluster.fork();
+  }
+}
+else {
+  app.listen(config.port, function () {
+    console.log('clustor worker %d started, pid is %d, listening on port: %d', cluster.worker.id, process.pid, config.port );
+  });
+}
+
+
 
