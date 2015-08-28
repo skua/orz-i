@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>七牛云存储 - JavaScript SDK</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="text-left col-md-12 wrapper">
+                <h1 class="text-left col-md-12 ">
+                七牛云存储 - JavaScript SDK
+                </h1>
+                <input type="hidden" id="domain" value="{{domain}}">
+                <input type="hidden" id="uptoken_url" value="{{uptoken_url}}">
+            </div>
+            <div class="body">
+                <div class="col-md-12">
+                    <div id="container">
+                        <a class="btn btn-default btn-lg " id="pickfiles" href="#" >
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>选择文件</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="loading"></div>
+                <div style="display:none" id="success" class="col-md-12">
+                    <div class="alert-success">
+                        队列全部文件处理完毕
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <script type="text/javascript" src="assets/dist/js/base.js"></script>
+    </body>
+</html>

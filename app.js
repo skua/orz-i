@@ -5,6 +5,7 @@ var path = require('path');
 var swig = require('swig');
 var koaBody = require('koa-body');
 var router = require('koa-router');
+var assets = require('koa-static-cache');
 var config = require('./config');
 var request = require('request');
 var support = require('./support');
@@ -21,7 +22,12 @@ var cpus = require('os').cpus();
 
 var app = module.exports = koa();
 
-
+// 静态资源
+app.use(assets(config.assets, {
+  maxAge: 365 * 24 * 60 * 60,
+  gzip: true,
+  prefix: '/assets'
+}));
 
 // 微信授权
 global.wxRequired = function(app) {

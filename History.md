@@ -4,22 +4,21 @@
 
 orz-i 数据格式只保留wp之前重要字段
 账户管理 评论管理以后再补充
-* wp_posts
-* ID：自增唯一ID
-* post_author：对应作者
-* post_date：发布时间
-* post_content：正文
-* post_title：标题
-* post_status：文章状态（publish/auto-draft/inherit等）
-* post_modified：修改时间
-* post_url：URL地址 同时作为页面的key
-* post_description：用于seo的描述/微信描述
-* post_keywords：用于seo的关键词 
-* post_wximg：用于微信缩略图
+
+* author：对应作者
+* date：发布时间 同时作为分页排序
+* content：正文
+* title：标题
+* status：文章状态（publish/auto-draft/inherit等）
+* modified：修改时间
+* url：URL地址 同时作为页面的key
+* description：用于seo的描述/微信描述
+* keywords：用于seo的关键词 
+* wximg：用于微信缩略图
 
 ==================
 
-*七牛同步图片数据
+*七牛同步图片数据blog
 *静态文件cdn.orz-i.com
 
 ==================
@@ -33,3 +32,11 @@ orz-i 数据格式只保留wp之前重要字段
 *增加config文件防止敏感信息提交上去
 *增加微信access_token cache
 
+
+==================
+
+*增加静态文件合并压缩及本地文件调用
+*增加七牛上传模块
+*微信授权模块
+*链接mongodb
+*日志目录本地

@@ -40,6 +40,15 @@ module.exports = {
   	username:" your user name",
   	password:" your password ",
   	collection:" mongo collection" //mongo 集合
-  }
+  },
+  qn:{
+    ACCESS_KEY: '**N*****Nro***EHiIh********J*',
+    SECRET_KEY: '*****3zIEt**mNnF8***E5d2DSN*****',
+    Bucket_Name: 'orz-i',
+    Uptoken_Url: '/uptoken',
+    Domain: 'http://cdn.orz-i.com/'
+  },
+    // 静态目录
+  assets: path.join(__dirname, '../assets')
 }
 ```

@@ -1,25 +1,25 @@
 {
   "name": "orz-i",
   "description": "orz-i.",
-  "version": "0.1.1",
+  "version": "1.0.1",
   "author": {
     "name": "skua",
     "email": "i@f2e.it"
   },
-  "homepage": "http://orz-i.com",
+  "homepage": "http://io.orz-i.com",
   "dependencies": {
     "koa-body": "^1.1.0",
     "koa": "^0.17.0",
     "koa-logger": "^1.1.0",
     "koa-router": "^4.3.2",
     "swig": "^1.4.2",
-    "monk": "^0.8.1",
-    "co-monk": "^1.0.0",
     "jssha": "^1.5.0",
     "request": "^2.51.0",
     "lodash": "^3.1.0",
     "winston": "^1.0.0",
     "moment": "^2.9.0",
+    "koa-static-cache": "^3.1.1",
+    "qiniu": "~6.1.1",
     "mongoose": "4.0.6"
   }
 }

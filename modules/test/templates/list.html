@@ -1,20 +1,18 @@
 {% extends 'layout.html' %}
-
 {% block title %}Node.js{% endblock %}
-
 {% block content %}
-
-<h1>名单列表</h1>
-  <p>共计<strong>{{ posts.length }}</strong> 条</p>
-  
-  <ul id="posts">
-    {% for post in posts %}
-      <li>
-        <h2>{{ post.name }}</h2>
-        
-        <p>{{ post.codes }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-
+	<h1>名单列表</h1>
+	<p>共计<strong>{{ posts.length }}</strong> 条</p>
+	
+	<ul id="posts">
+		{% for post in posts %}
+			{% if post.openid %}
+				<li>
+					<h2>{{ post.nickname }}</h2>
+					<p>{{ post.openid }}</p>
+					<img src="{{post.headimgurl}}" style="width: 100px;height: 100px;">
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
 {% endblock %}
