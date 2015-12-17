@@ -1,0 +1,72 @@
+{% set title = "快看！"+boy+"和"+girl+"开始疯狂的秀恩爱啦！"; %}
+{% extends 'layout.html' %}
+{% block content %}
+    <style>
+    .bold{ font-weight: 900;}
+    .margin-top{  margin-top: 20px;}
+    .content{
+    color: #8a2e0f;  line-height: 28px;
+    }
+    .angle-icon-1{  position: absolute;
+    top: 250px;
+    right: -110px;-webkit-animation: pop 14s ease-in 0s infinite;}
+    .angle-icon-2{position: absolute;
+    top: 550px;
+    left: -110px;-webkit-animation: pop 12s ease-in 0s infinite;}
+    @-webkit-keyframes pop {
+    0% { -webkit-transform: translateY(0px) }
+    25% { -webkit-transform: translateY(20px) }
+    50% { -webkit-transform: translateY(0px) }
+    75% { -webkit-transform: translateY(-20px) }
+    100% { -webkit-transform: translateY(0px) }
+    }
+        .btn-pic{ display: none;}
+    .btn-pic-2{display: block;-webkit-animation:show 1s 24s ease both;}
+    </style>
+    <div id="musicbox">
+        <audio id="music" preload="preload" loop="loop">
+            <source src="http://cdn.orz-i.com/qx/m/2.mp3">
+        </audio>
+    </div>
+    <div id="btn_sound"></div>
+    <div class="wrapper-bg">
+        <div class="content-box" >
+            <div class="logo"><img  src="http://cdn.orz-i.com/qx/images/logo.png" /></div>
+            <div class="bg"><img src="http://cdn.orz-i.com/qx/images/bg-2-1.jpg" /></div>
+            <div class="content-area">
+                <img class="title-pic" src="http://cdn.orz-i.com/qx/images/title-2-1.png" />
+                <img class="cover-pic" src="http://cdn.orz-i.com/qx/images/cover-5-1.png" />
+                <div class="content">
+                    <p class=" content-text content-1">神父:<span class="big">{{boy}}</span>，<span class="big">{{girl}}</span>，</p>
+                    <p class=" content-text content-2">我要分别问你们两人同样的一个问题，</p>
+                    <p class=" content-text content-3 ">请在听完后才回答：</p>
+                    <p class=" content-text content-4"><span class="big">{{boy}}</span>，你是否愿意娶<span class="big">{{girl}}</span></p>
+                    <p class=" content-text content-5">为妻，按照圣经的教训与他同住，</p>
+                    <p class=" content-text content-6 ">在神面前和她结为一体，</p>
+                    <p class=" content-text content-7 ">爱她、安慰她、尊重她、保护他，</p>
+                    <p class=" content-text content-8">像你爱自己一样。</p>
+                    <p class=" content-text content-9">不论她生病或是健康、富有或贫穷，</p>
+                    <p class=" content-text content-10">始终忠於她，直到离开世界？</p>
+
+                    <p class=" content-text content-11 bold"><span class="big">{{boy}}</span>：我愿意</p>
+                    <p class=" content-text content-12">神父：<span class="big">{{girl}}</span>，你是否愿意嫁<span class="big">{{boy}}</span>为妻，</p>
+                    <p class=" content-text content-13">爱他、安慰他、尊重他、保护他，</p>
+                    <p class=" content-text content-14 ">像你爱自己一样。</p>
+                    <p class=" content-text content-15">不论他生病或是健康、富有或贫穷，</p>
+                    <p class=" content-text content-16">始终忠於他，直到离开世界？</p>
+                    <p class=" content-text content-17 bold"><span class="big">{{girl}}</span>：我愿意</p>
+                    <p class=" content-text content-18">神父：现在要交换戒指。</p>
+                    <p class=" content-text content-19">戴上这枚由百度钱包特约提供赞助的</p>
+                    <p class=" content-text content-20">真爱之戒，你们的爱情就会被上天所</p>
+                    <p class=" content-text content-21">保护！从今天开始，这世上又多了一对</p>
+                    <p class=" content-text content-22">连fff团也无可奈何的真爱情侣</p>
+                    <p class=" content-text content-23">——<span class="big">{{boy}}</span>、<span class="big">{{girl}}</span>！</p>
+                 
+                </div>
+                <img class="angle-icon-1"src="http://cdn.orz-i.com/qx/images/angle-2-2.png" />
+                <img class="angle-icon-2"src="http://cdn.orz-i.com/qx/images/angle-2-1.png" />
+            </div>
+            <a id="join" href="/case/magpie/make"><img class="btn-pic btn-pic-2" src="http://cdn.orz-i.com/qx/images/join-btn.png" /></a>
+        </div>
+    </div>
+{% endblock %}

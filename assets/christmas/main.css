@@ -1,0 +1,38 @@
+* { margin: 0; padding: 0; }
+.q-box-out { display: none; }
+.q-top { position: absolute; top: 0px; z-index: 10; }
+.q-cover { position: absolute; top: 120px; z-index: 9; }
+.q-gif { position: absolute; top: 120px; z-index: 8; }
+.q-q4 { position: absolute; top: 700px; z-index: 8; }
+.q-btn-1 { position: absolute; top: 0px; left: 52px; z-index: 11; display: block; width: 230px; height: 106px; }
+.q-btn-2 { position: absolute; top: 0px; right: 52px; z-index: 11; display: block; width: 230px; height: 106px; }
+.q-btn-3 { position: absolute; top: 122px; left: 52px; z-index: 11; display: block; width: 230px; height: 106px; }
+.q-btn-4 { position: absolute; top: 122px; right: 52px; z-index: 11; display: block; width: 230px; height: 106px; }
+@-webkit-keyframes fadeInUp {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.q-box { display: none; }
+.q-box.active { display: block; -webkit-animation: fadeInUp 1s .2s ease both; }
+.q-bg-w { position: absolute; top: 164px; width: 480px; height: 480px; left: 50%; background-color: #fff; margin-left: -240px; }
+.boy-box { display: none; }
+.girl-box { display: none; }
+.boy-gir { position: absolute; top: 165px; z-index: 10; }
+.boy-girl-btn { position: absolute; top: 740px; z-index: 10; width: 490px; left: 50%; margin-left: -245px; }
+.btn-boy { position: absolute; top: 320px; z-index: 10; left: 24px; width: 260px; display: block; height: 500px; }
+.btn-girl { position: absolute; top: 320px; z-index: 10; right: 24px; width: 260px; display: block; height: 500px; }
+.change { display: none; }
+.home-boy-girl { position: absolute; top: 150px; }
+.home-title { position: absolute; top: 430px; }
+.home-btn { position: absolute; top: 760px; width: 160px; left: 50%; margin-left: -80px; z-index: 9; }
+.end-share-box .home-boy-girl { z-index: 9; top: 450px; left: 50%; margin-left: -250px; }
+.end-share-box .home-boy-girl img { width: 500px; }
+.end-share { position: absolute; top: 130px; left: 50%; margin-left: -285px; }
+.end-text { position: absolute; top: 690px; left: 50%; margin-left: -285px; z-index: 11; }
+.score-num { position: absolute; top: 130px; width: 530px; left: 50%; margin-left: -265px; display: none; }
+.score-num.active{ display: block;}
+.score-text { position: absolute; top: 520px; width: 570px; left: 50%; margin-left: -285px; }
+.score-share-btn { position: absolute; top: 760px; left: 20px; }
+.score-link-btn { position: absolute; top: 800px; left: 190px; }
+.score-again-btn { position: absolute; top: 760px; right: 20px; }
+.last{ display: none;}

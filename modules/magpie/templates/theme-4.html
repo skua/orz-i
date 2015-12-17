@@ -1,0 +1,66 @@
+{% set title = "快看！"+boy+"和"+girl+"开始疯狂的秀恩爱啦！"; %}
+{% extends 'layout.html' %}
+{% block content %}
+    <style>
+    .bold{ font-weight: 900;}
+    .margin-top{  margin-top: 16px;}
+    .content{ font-size: 20px; color: #fff;line-height: 28px;}
+    .angle-icon-1{   position: absolute;
+    top: 150px;
+    right: -110px;-webkit-animation: pop 10s ease-in 0s infinite;}
+    .angle-icon-2{position: absolute;
+    top: 550px;
+    left: -110px;-webkit-animation: pop 14s ease-in 0s infinite;}
+    @-webkit-keyframes pop {
+    0% { -webkit-transform: translateY(0px) }
+    25% { -webkit-transform: translateY(20px) }
+    50% { -webkit-transform: translateY(0px) }
+    75% { -webkit-transform: translateY(-20px) }
+    100% { -webkit-transform: translateY(0px) }
+    }
+        .btn-pic{ display: none;}
+    .btn-pic-4{display: block;-webkit-animation:show 1s 21s ease both;}
+    </style>
+    <div id="musicbox">
+        <audio id="music" preload="preload" loop="loop">
+            <source src="http://cdn.orz-i.com/qx/m/4.mp3">
+        </audio>
+    </div>
+    <div id="btn_sound"></div>
+    <div class="wrapper-bg">
+        <div class="content-box" >
+            <div class="logo"><img  src="http://cdn.orz-i.com/qx/images/logo.png" /></div>
+            <div class="bg"><img src="http://cdn.orz-i.com/qx/images/bg-4.jpg" /></div>
+            <div class="content-area">
+                <img class="title-pic" src="http://cdn.orz-i.com/qx/images/title-4-1.png" />
+                <img class="cover-pic" src="http://cdn.orz-i.com/qx/images/cover-4.png" />
+                <div class="content">
+                    <p class="content-text content-1"><span class="big">{{boy}}</span>和<span class="big">{{girl}}</span>第一次约会。看夕阳。</p>
+                    <p class="content-text content-2"><span class="big">{{boy}}</span>：那个秦五爷，他居然调查过你！</p>
+                    <p class="content-text content-3 ">我觉得大上海那个工作，真是危机四伏，</p>
+                    <p class="content-text content-4">我对你实在是好担心！ </p>
+                    <p class="content-text content-5"><span class="big">{{girl}}</span>：哎！我们去看日落好不好？</p>
+                    <p class="content-text content-6"><span class="big">{{boy}}</span>：好啊！（<span class="big">{{boy}}</span>伸出右手，</p>
+                    <p class="content-text content-7 margin-top"><span class="big">{{girl}}</span>拍了一下，笑著跑开了）</p>
+                    <p class="content-text content-8 bold"><span class="big">{{boy}}</span>：如果看落日就会治好你心</p>
+                    <p class="content-text content-9 bold">里的一些伤口，我愿意天天陪你看落日！</p>
+                    <p class="content-text content-10">（<span class="big">{{girl}}</span>抿著嘴笑了）</p>
+                    <p class="content-text content-11">我脸上有奇怪的东西吗？<span class="big">{{girl}}</span>好可爱的</p>
+                    <p class="content-text content-12">笑著说：有！有时候，我觉得你</p>
+                    <p class="content-text content-13 bold">很天真，好象从来没有接触过丑恶</p>
+                    <p class="content-text content-14 bold margin-top">和仇恨。<span class="big">{{boy}}</span>：其实，</p>
+                    <p class="content-text content-15 bold">秦五爷的访问早就可以结束了。只是，</p>
+                    <p class="content-text content-16 bold">大上海那儿我还有些未了的事！</p>
+                    <p class="content-text content-17 bold">（<span class="big">{{boy}}</span>凝视著<span class="big">{{girl}}</span>，拉著<span class="big">{{girl}}</span></p>
+                    <p class="content-text content-18 bold">的右手，在掌心写了一个字。）<span class="big">{{boy}}</span></p>
+                    <p class="content-text content-19 bold">歪著头，定定的看著<span class="big">{{girl}}</span>，</p>
+                    <p class="content-text content-20 bold">笑著说：就是你！（温柔深情）</p>
+                    
+                </div>
+                <img class="angle-icon-1"src="http://cdn.orz-i.com/qx/images/angle-4-1.png" />
+                <img class="angle-icon-2"src="http://cdn.orz-i.com/qx/images/angle-4-2.png" />
+            </div>
+            <a id="join" href="/case/magpie/make"><img class="btn-pic btn-pic-4" src="http://cdn.orz-i.com/qx/images/join-btn.png" /></a>
+        </div>
+    </div>
+{% endblock %}

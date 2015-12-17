@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>A</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi,width=640 user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" href="http://cdn.orz-i.com/gj/css/style2.css?v=18">
+    </head>
+<style>.btn{ margin: 0 auto ; width: 100px; top: 50px; display: block;}</style>   
+    <body>
+
+<a class="qr" href="#" target="_blank"></div>
+<a class="btn">加入频道</a>
+<a class="btn-b">频道广播</a>
+<a class="nm">群体广播</a>
+
+
+<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+
+
+ {% block script %}
+  <script src="http://7xicpg.com1.z0.glb.clouddn.com/js/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.orz-i.com/public/qrcode.min.js"></script>
+<script src="http://ossweb-img.qq.com/images/js/socket/socket.io.min.js" charset="gb2312"></script>
+  <script src="{{ '/assets/socket/main.js'|version }}"></script>
+  <script src="{{ '/assets/socket/a.js'|version }}"></script>
+{% endblock %}       
+      
+    </body>
+</html>

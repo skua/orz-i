@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>这些节日之间，隐藏的关系是……</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi,width=640 user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="http://cdn.orz-i.com/public/swiper.css">
+  </head>
+  <body>
+    <style>
+    
+    .cover img{  z-index: 2;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;}
+    @-webkit-keyframes bounceIn{
+    0%{opacity:0;
+    -webkit-transform:scale(1.2)}
+    100%{-webkit-transform:scale(1)}
+    }
+    @-webkit-keyframes flip{
+    0%{opacity:0; -webkit-transform:perspective(400px) rotateY(0);
+    -webkit-animation-timing-function:ease-out}
+    40%{opacity:1;-webkit-transform:perspective(400px) translateZ(150px) rotateY(170deg);
+    -webkit-animation-timing-function:ease-out}
+    50%{-webkit-transform:perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+    -webkit-animation-timing-function:ease-in}
+    80%{-webkit-transform:perspective(400px) rotateY(360deg) scale(.95);
+    -webkit-animation-timing-function:ease-in}
+    100%{-webkit-transform:perspective(400px) scale(1);
+    -webkit-animation-timing-function:ease-in}
+    }
+    .swiper-slide-active .bg img{ -webkit-animation:bounceIn 2s .1s ease both;}
+    .swiper-slide-active .sz-1 img{  position: absolute;
+    display: block;
+    z-index: 3;
+    right: -46px;
+    top: 32px;-webkit-animation:flip 1s 2.2s ease both;}
+    .swiper-slide-active .sz-2 img{  position: absolute;
+    display: block;
+    z-index: 3;
+    right: -46px;
+    top: 32px;-webkit-animation:flip 1s 2.2s ease both;}
+    .swiper-slide-active .sz-3 img{  position: absolute;
+    display: block;
+    z-index: 3;
+    right: -46px;
+    top: 32px;-webkit-animation:flip 1s 2.2s ease both;}
+    .swiper-slide-active .sz-4 img{  position: absolute;
+    display: block;
+    z-index: 3;
+    right: -46px;
+    top: 32px;-webkit-animation:flip 1s 2.2s ease both;}
+    .swiper-slide-active .sz-5 img{   position: absolute;
+    display: block;
+    z-index: 3;
+    left: -40px;
+    top: 580px;
+    -webkit-animation: flip 1s 2.2s ease both;}
+    @-webkit-keyframes bounceIn2{
+    0%{opacity:0;
+    -webkit-transform:scale(.3)}
+    50%{opacity:1;
+    -webkit-transform:scale(1.05)}
+    70%{-webkit-transform:scale(.9)}
+    100%{-webkit-transform:scale(1)}
+    }
+    .swiper-slide-active .sz-6 img{   position: absolute;
+    display: block;
+    z-index: 3;
+    -webkit-animation:bounceIn2 1s 2.2s ease both;
+    left: 50%;
+    margin-left: -300px;}
+    .f-box{  position: absolute;
+    width: 120px;
+    height: 466px;
+    left: 50%;
+    margin-left: -60px;
+    top: 300px;}
+    @-webkit-keyframes flag{0%{height:0;opacity:0}1%{height:0;opacity:1}100%{height:466px;opacity:1}}
+    .swiper-slide-active .f-1 {display: block;  background: url(http://cdn.orz-i.com/yzfr/img/f-text-1.png) 0 0;
+    position: absolute;
+    left: 60px; width:60px; height: 466px; -webkit-animation: flag 3s 0.1s linear both;  opacity: 0;}
+    .swiper-slide-active .f-2 {  display: block;background: url(http://cdn.orz-i.com/yzfr/img/f-text-2.png) 0 0;
+    position: absolute;width:60px;height: 466px; -webkit-animation: flag 3s 3.1s linear both;  opacity: 0;}
+    @-webkit-keyframes flipInY{
+    0%{-webkit-transform:perspective(400px) rotateY(90deg);
+    opacity:0}
+    40%{-webkit-transform:perspective(400px) rotateY(-10deg)}
+    70%{-webkit-transform:perspective(400px) rotateY(10deg)}
+    100%{-webkit-transform:perspective(400px) rotateY(0deg);
+    opacity:1}
+    }
+    .swiper-slide-active .f-3 img{  display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -68px;
+    top: 196px;-webkit-animation:flipInY 1s 6.2s ease both;}
+
+.swiper-slide-active .btn img{position: absolute;
+  display: block;
+  z-index: 3;
+  -webkit-animation: bounceIn2 1s 2.2s ease both;
+  left: 50%;
+  margin-left: -120px;
+  top: 350px;}
+
+
+    </style>
+        <div id="musicbox">
+      <audio id="music" preload="preload" loop="loop">
+        <source src="http://cdn.orz-i.com/yzfr/img/bgm.mp3">
+      </audio>
+    </div>
+    <div id="btn_sound"></div>
+    <div class="swiper-container container swiper-vertical wrapper-bg">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide-page-0">
+          <div class="content-box" >
+            <div class="bg"></div>
+            <div class="cover"><img src="http://cdn.orz-i.com/yzfr/img/p-all-cover.png" /></div>
+            
+            <div class="f-box">
+              <div class="f-1">
+                
+              </div>
+              <div class="f-2">
+                
+              </div>
+            </div>
+            <div class="f-3">
+              <img src="http://cdn.orz-i.com/yzfr/img/f-icon.png" />
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide slide-page-1">
+          <div class="content-box" >
+            <div class="bg"><img src="http://cdn.orz-i.com/yzfr/img/p-1.jpg" /></div>
+            <div class="cover"><img src="http://cdn.orz-i.com/yzfr/img/p-all-cover.png" /></div>
+            
+            <div class="sz-1">
+              <img src="http://cdn.orz-i.com/yzfr/img/sz-1.png" />
+            </div>
+          </div>
+        </div>
+
+
+        <div class="swiper-slide slide-page-4">
+          <div class="content-box" >
+            <div class="bg"><img src="http://cdn.orz-i.com/yzfr/img/p-4.jpg" /></div>
+            <div class="cover"><img src="http://cdn.orz-i.com/yzfr/img/p-all-cover.png" /></div>
+            <div class="sz-4">
+              <img src="http://cdn.orz-i.com/yzfr/img/sz-4.png" />
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="swiper-slide slide-page-2">
+          <div class="content-box" >
+            <div class="bg"><img src="http://cdn.orz-i.com/yzfr/img/p-2.jpg" /></div>
+            <div class="cover"><img src="http://cdn.orz-i.com/yzfr/img/p-all-cover.png" /></div>
+            <div class="sz-2">
+              <img src="http://cdn.orz-i.com/yzfr/img/sz-2.png" />
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide slide-page-3">
+          <div class="content-box" >
+            <div class="bg"><img src="http://cdn.orz-i.com/yzfr/img/p-3.jpg" /></div>
+            <div class="cover"><img src="http://cdn.orz-i.com/yzfr/img/p-all-cover.png" /></div>
+            
+            <div class="sz-3">
+              <img src="http://cdn.orz-i.com/yzfr/img/sz-3.png" />
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide slide-page-5">
+          <div class="content-box" >
+            <div class="bg"><img src="http://cdn.orz-i.com/yzfr/img/p-5.jpg" /></div>
+            <div class="cover"><img src="http://cdn.orz-i.com/yzfr/img/p-all-cover.png" /></div>
+            
+            <div class="sz-5">
+              <img src="http://cdn.orz-i.com/yzfr/img/sz-5.png" />
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide slide-page-6">
+          <div class="content-box" >
+            <div class="bg"><img src="http://cdn.orz-i.com/yzfr/img/p-6.jpg" /></div>
+            <div class="cover"><img src="http://cdn.orz-i.com/yzfr/img/p-all-cover.png" /></div>
+            
+            <div class="sz-6">
+              <img src="http://cdn.orz-i.com/yzfr/img/sz-6.png" />
+            </div>
+             <a class="btn" href="/case/yzfshop">
+              <img src="http://cdn.orz-i.com/yzfr/img/btn.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="http://7xicpg.com1.z0.glb.clouddn.com/js/jquery.min.js"></script>
+    <script src="http://7xicpg.com1.z0.glb.clouddn.com/js/idangerous.swiper.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://cdn.orz-i.com/public/swiper.js"></script>
+    <script>
+    var appId = "{{signature.appid}}";
+    var timestamp = "{{signature.timestamp}}";
+    var nonceStr = "{{signature.nonceStr}}";
+    var signature = "{{signature.signature}}";
+    var _ = this,
+    href = document.location.href,
+    path = href.substr(0, href.lastIndexOf('/')),
+    src = 'http://cdn.orz-i.com/yzfr/img/200-200.jpg',
+    imgUrl = src,
+    lineLink = href,
+    
+    descContent = '这些看似毫不相关的节日，其实都有一个共同点',
+    shareTitle = '这些节日之间，隐藏的关系是……';
+    wx.config({
+    debug: false,
+    appId: appId,
+    timestamp: timestamp,
+    nonceStr: nonceStr,
+    signature: signature,
+    jsApiList: [
+    'onMenuShareTimeline',
+    'onMenuShareAppMessage',
+    'onMenuShareQQ',
+    'onMenuShareWeibo',
+    'checkJsApi',
+    'chooseImage'
+    // 所有要调用的 API 都要加到这个列表中
+    ]
+    });
+    wx.ready(function() {
+    // 在这里调用 API
+    wx.onMenuShareAppMessage({
+    title: shareTitle,
+    desc: descContent,
+    link: lineLink,
+    imgUrl: imgUrl
+    });
+    wx.onMenuShareTimeline({
+    title: shareTitle,
+    link: lineLink,
+    imgUrl: imgUrl
+    });
+    wx.onMenuShareQQ({
+    title: shareTitle,
+    desc: descContent,
+    link: lineLink,
+    imgUrl: imgUrl
+    });
+    });
+    </script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=50632034" charset="UTF-8"></script>
+  </body>
+</html>

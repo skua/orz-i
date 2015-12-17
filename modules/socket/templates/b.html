@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>B</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi,width=640 user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <link rel="stylesheet" href="http://cdn.orz-i.com/gj/css/style2.css?v=18">
+    </head>
+
+<style type="text/css">
+
+.num{ display: none;}
+
+
+</style>
+
+    <body>
+   {{roomId}}
+
+<a class="btn">加入频道</a>
+
+
+
+<ul>
+<li class="num-1 num"><a>1</a></li>
+<li class="num-2 num"><a>2</a></li>
+<li class="num-3 num"><a>3</a></li>
+<li class="num-4 num"><a>4</a></li>
+<li class="num-5 num"><a>5</a></li>
+<li class="num-6 num"><a>6</a></li>
+<li class="num-7 num"><a>7</a></li>
+<li class="num-8 num"><a>8</a></li>
+<li class="num-9 num"><a>9</a></li>
+<li class="num-0 num"><a>0</a></li>
+</ul>
+
+
+
+
+
+
+ {% block script %}
+
+  <script type="text/javascript">
+  var roomId = "{{roomId}}" 
+  </script>
+
+  <script src="http://7xicpg.com1.z0.glb.clouddn.com/js/jquery.min.js"></script>
+  <script src="http://ossweb-img.qq.com/images/js/socket/socket.io.min.js"></script>
+
+  <script src="{{ '/assets/socket/main.js'|version }}"></script>
+  <script src="{{ '/assets/socket/b.js'|version }}"></script>
+
+
+
+
+
+
+{% endblock %}       
+      
+    </body>
+</html>

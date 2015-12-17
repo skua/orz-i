@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    <div id="musicbox">
+        <audio id="music" preload="preload" loop="loop">
+            <source src="http://cdn.orz-i.com/qx/m/0.mp3">
+        </audio>
+    </div>
+    <div id="btn_sound"></div>
+    <div class="wrapper-bg make-page">
+        <div class="content-box" >
+            <div class="bg"><img src="http://cdn.orz-i.com/qx/images/make-bg.jpg" /></div>
+            <div class="slogan-area">
+                <img class="slogan-pic-1 slogan-pic" src="http://cdn.orz-i.com/qx/images/slogan-1.png" />
+                <img class="slogan-pic-2 slogan-pic" src="http://cdn.orz-i.com/qx/images/slogan-2.png" />
+                <img class="slogan-pic-3 slogan-pic" src="http://cdn.orz-i.com/qx/images/slogan-3.png" />
+                <img class="slogan-pic-4 slogan-pic" src="http://cdn.orz-i.com/qx/images/slogan-4.png" />
+                <img class="slogan-pic-5 slogan-pic" src="http://cdn.orz-i.com/qx/images/slogan-5.png" />
+                <img class="slogan-pic-6 slogan-pic" src="http://cdn.orz-i.com/qx/images/slogan-6.png" />
+                <img class="slogan-pic-7 slogan-pic" src="http://cdn.orz-i.com/qx/images/slogan-7.png" />
+            </div>
+            <div class="make-area show">
+                <a class="boy">他的名字</a>
+                <a class="girl">她的名字</a>
+                <form name="join">
+                    <input name="boy" value="" class="boy-input" maxlength="4" minlength="2" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')"/>
+                    <input name="girl" value="" class="girl-input" maxlength="4" minlength="2" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')"/>
+                </form>
+            </div>
+            <a id="makeJoin" class="make-join show"><img src="http://cdn.orz-i.com/qx/images/make-btn.png" /></a>
+        </div>
+    </div>
+    <script type="text/javascript">
+    btn = document.getElementById("makeJoin");
+    
+    btn.addEventListener("click",function(){
+    if($(".boy-input").val().length < 2 || $(".girl-input").val().length < 2){
+    alert("名字要两个字以上的中文哦～")
+    }
+    else{
+    location.href = "/case/magpie/theme/" + (Math.ceil(Math.random()*5) +"?boy="+document.join.boy.value+"&girl="+document.join.girl.value) ;
+    }
+    });
+    
+    
+    </script>
+{% endblock %}

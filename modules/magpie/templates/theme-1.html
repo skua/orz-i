@@ -1,0 +1,62 @@
+{% set title = "快看！"+boy+"和"+girl+"开始疯狂的秀恩爱啦！"; %}
+{% extends 'layout.html' %}
+
+{% block content %}
+    <style>
+    .bold{ font-weight: 900;}
+    .margin-top{  margin-top: 20px;}
+    .content{ color: #3a1773;}
+    @-webkit-keyframes pop {
+    0% { -webkit-transform: translateY(0px) }
+    25% { -webkit-transform: translateY(20px) }
+    50% { -webkit-transform: translateY(0px) }
+    75% { -webkit-transform: translateY(-20px) }
+    100% { -webkit-transform: translateY(0px) }
+    }
+    .angle-icon-1{  position: absolute;
+    top: 250px;
+    right: -110px;-webkit-animation: pop 14s ease-in 0s infinite;}
+    .angle-icon-2{position: absolute;
+    top: 550px;
+    left: -110px;-webkit-animation: pop 16s ease-in 0s infinite;}
+    .btn-pic{ display: none;}
+    .btn-pic-1{display: block;-webkit-animation:show 1s 16s ease both;}
+    </style>
+    <div id="musicbox">
+        <audio id="music" preload="preload" loop="loop">
+            <source src="http://cdn.orz-i.com/qx/m/1.mp3">
+        </audio>
+    </div>
+    <div id="btn_sound"></div>
+    <div class="wrapper-bg">
+        <div class="content-box" >
+<div class="logo"><img  src="http://cdn.orz-i.com/qx/images/logo.png" /></div>
+            <div class="bg"><img src="http://cdn.orz-i.com/qx/images/bg-1.jpg" /></div>
+            <div class="content-area">
+                <img class="title-pic" src="http://cdn.orz-i.com/qx/images/title-1-1.png" />
+                <img class="cover-pic" src="http://cdn.orz-i.com/qx/images/cover-1.png" />
+                <div class="content">
+                    <p class="content-text content-1">就在2015年8月20号</p>
+                    <p class="content-text content-2"> <span class="big">{{boy}}</span>爬上了埃菲尔铁塔的塔尖上大声高呼</p>
+                    <p class="content-text content-3 bold">“<span class="big">{{girl}}</span>！我爱你一万年！”</p>
+                    <p class="content-text content-4">据路边社报道，</p>
+                    <p class="content-text content-5">这一天是中国传统情人节</p>
+                    <p class="content-text content-6 bold">——七夕节</p>
+                    <p class="content-text content-7 margin-top">而<span class="big">{{boy}}</span>又恰好是第520个爬上塔顶的</p>
+                    <p class="content-text content-8">代表的意义非凡</p>
+                    <p class="content-text content-9"><span class="big">{{boy}}</span>和<span class="big">{{girl}}</span>这一对情侣将会永远在一起不分开</p>
+                    <p class="content-text content-10">其实为了争抢这第520位的人很多，</p>
+                    <p class="content-text content-11">但是<span class="big">{{boy}}</span>使出了终极必杀技——</p>
+                    <p class="content-text content-12 bold">由百度钱包提供的大量优惠券</p>
+                    <p class="content-text content-13">买通了所有竞争对手</p>
+                    <p class="content-text content-14">才爬上了这意义非凡的塔尖</p>
+                    <p class="content-text content-15 margin-top">现在恐高的<span class="big">{{boy}}</span>正在考虑怎么下去...</p>
+                </div>
+                <img class="angle-icon-1"src="http://cdn.orz-i.com/qx/images/angle-1-1.png" />
+                <img class="angle-icon-2"src="http://cdn.orz-i.com/qx/images/angle-1-2.png" />
+
+            </div>
+<a id="join" href="/case/magpie/make"><img class="btn-pic btn-pic-1" src="http://cdn.orz-i.com/qx/images/join-btn.png" /></a>
+        </div>
+    </div>
+{% endblock %}

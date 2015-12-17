@@ -1,0 +1,65 @@
+{% set title = "快看！"+boy+"和"+girl+"开始疯狂的秀恩爱啦！"; %}
+{% extends 'layout.html' %}
+{% block content %}
+    <style>
+    .bold{ font-weight: 900;}
+    .margin-top{  margin-top: 20px;}
+    .content{ color: #8a2e0f;line-height: 38px;}
+    .angle-icon-1{   position: absolute;
+    top: 700px;
+    right: -50px;-webkit-animation: pop 17s ease-in 0s infinite;}
+    .angle-icon-2{position: absolute;
+    top: 550px;
+    left: -110px;-webkit-animation: pop 14s ease-in 0s infinite;}
+    .angle-icon-3{  position: absolute;
+    top: 150px;
+    right: -110px;-webkit-animation: pop 12s ease-in 0s infinite;}
+    @-webkit-keyframes pop {
+    0% { -webkit-transform: translateY(0px) }
+    25% { -webkit-transform: translateY(20px) }
+    50% { -webkit-transform: translateY(0px) }
+    75% { -webkit-transform: translateY(-20px) }
+    100% { -webkit-transform: translateY(0px) }
+    }
+        .btn-pic{ display: none;}
+    .btn-pic-5{display: block;-webkit-animation:show 1s 16s ease both;}
+    </style>
+    <div id="musicbox">
+        <audio id="music" preload="preload" loop="loop">
+            <source src="http://cdn.orz-i.com/qx/m/5.mp3">
+        </audio>
+    </div>
+    <div id="btn_sound"></div>
+    <div class="wrapper-bg">
+        <div class="content-box" >
+            <div class="logo"><img  src="http://cdn.orz-i.com/qx/images/logo.png" /></div>
+            <div class="bg"><img src="http://cdn.orz-i.com/qx/images/bg-5.jpg" /></div>
+            <div class="content-area">
+                <img class="title-pic" src="http://cdn.orz-i.com/qx/images/title-5-1.png" />
+                <img class="cover-pic" src="http://cdn.orz-i.com/qx/images/cover-5.png" />
+                <div class="content">
+                    <p class="content-text content-1">海滩的夜景，美得让人忘记自我。</p>
+                    <p class="content-text content-2"><span class="big">{{boy}}</span>和<span class="big">{{girl}}</span>手牵着手漫步在海滩上，</p>
+                    <p class="content-text content-3 ">不知不觉中，两人渐渐的走出了很远。</p>
+                    <p class="content-text content-4">海风与海浪的声音，加重了夜的宁静。</p>
+                    <p class="content-text content-5 margin-top">突然，两人眼里亮起一阵微光，</p>
+                    <p class="content-text content-6 ">一圈心形的光亮将两人包围，</p>
+                    <p class="content-text content-7  ">两人的好友们不知从哪里都涌了出来。</p>
+                    <p class="content-text content-8  ">顿时两人被烛光、鲜花和朋友簇拥在了中间。</p>
+                    <p class="content-text content-9 margin-top"><span class="big">{{boy}}</span>单膝跪地，掏出了早已准备好的钻戒：</p>
+                    <p class="content-text content-10"><span class="big">{{girl}}</span>，我爱你，嫁给我吧！</p>
+                    <p class="content-text content-11"><span class="big">{{girl}}</span>满眼泪水的接过了钻戒，</p>
+                    <p class="content-text content-12  ">两人紧紧的拥抱在了一起。</p>
+                    <p class="content-text content-13   margin-top">霎时间，四周礼花齐放，</p>
+                    <p class="content-text content-14  ">气氛随着大家的欢呼声达到了顶点</p>
+                    <p class="content-text content-15  ">……</p>
+                    
+                </div>
+                <img class="angle-icon-1"src="http://cdn.orz-i.com/qx/images/angle-5-1.png" />
+                <img class="angle-icon-2"src="http://cdn.orz-i.com/qx/images/angle-5-2.png" />
+                <img class="angle-icon-3"src="http://cdn.orz-i.com/qx/images/angle-5-3.png" />
+            </div>
+            <a id="join" href="/case/magpie/make"><img class="btn-pic btn-pic-5" src="http://cdn.orz-i.com/qx/images/join-btn.png" /></a>
+        </div>
+    </div>
+{% endblock %}

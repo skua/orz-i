@@ -2,7 +2,7 @@
 var fs = require('fs');
 var path = require('path');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   var fs = require('fs');
   var path = require('path');
   var util = require('util');
@@ -14,8 +14,8 @@ module.exports = function(grunt) {
 
     config: {
       folder: 'dist',
-      port: 3442,
-      livereload: 35741
+      port: 8888,
+      livereload: 35740
     },
 
     banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -39,18 +39,26 @@ module.exports = function(grunt) {
       }
     },
 
+    jshint: {
+      options: {
+        jshintrc: true
+      },
+      dev: 'src/js/*.js'
+    },
 
     concat: {
       options: {
         stripBanners: true
       },
       css: {
-        src: ['src/css/base.css'],
+        src: ['src/css/base.css', 'src/css/icons.css'],
         dest: '<%= config.folder %>/css/base.css'
       },
       js: {
-        src: ['src/js/*.js'],
-        dest: '<%= config.folder %>/js/base.js'
+        files: [{
+          src: ['vendor/polyfill/**/*.js', 'vendor/zepto.js', 'vendor/fastclick.js', 'vendor/swig.js', 'vendor/swipe.js', 'vendor/bridge.js', 'vendor/base.js', 'vendor/widget/**/*.js'],
+          dest: '<%= config.folder %>/vendor/base.js'
+        }]
       }
     },
 
@@ -74,28 +82,56 @@ module.exports = function(grunt) {
         files: [{
           expand: true, // Enable dynamic expansion
           cwd: '<%= config.folder %>/js', // Src matches are relative to this path
-          src: ['**/*.js'], // Actual patterns to match
+          src: ['**/*.js', '!**/game.js'], // Actual patterns to match
           dest: '<%= config.folder %>/js' // Destination path prefix
+        },{
+          src: ['<%= config.folder %>/vendor/base.js'],
+          dest: '<%= config.folder %>/vendor/base.js'
         }]
       }
     },
 
+    px2rem: {
+      options: {
+        root: 32.8125
+      },
+      css: {
+        files: [{
+          expand: true, // Enable dynamic expansion
+          cwd: '<%= config.folder %>/css', // Src matches are relative to this path
+          src: ['**/*.css', '!doodle.css'], // Actual patterns to match
+          dest: '<%= config.folder %>/css' // Destination path prefix
+        }]
+      }
+    },
 
     watch: {
       options: {
         livereload: '<%= config.livereload%>'
       },
-      sync: {
+      src: {
         files: ['src/**/*.{html,css,js,ico,png,txt,gif,jpg,jpeg,svg,eot,ttf,woff,json}'],
-        tasks: ['sync']
+        tasks: ['sync:src2dest']
+      },
+      vendor: {
+        files: ['vendor/lib/**/*.js'],
+        tasks: ['sync:vendor']
       },
       js: {
-        files: ['vendor/**/*.js'],
+        files: ['vendor/**/*.js', '!vendor/lib/**/*.js'],
         tasks: ['concat:js']
+      },
+      css: {
+        files: ['src/css/**/*.css'],
+        tasks: ['px2rem']
       },
       combine: {
         files: ['src/css/base.css', 'src/css/icons.css'],
-        tasks: ['concat:css']
+        tasks: ['concat:css', 'px2rem']
+      },
+      icons: {
+        files: ['src/images/icons/*.png'],
+        tasks: ['autoicons', 'sync', 'concat:css', 'px2rem']
       }
     },
 
@@ -122,35 +158,68 @@ module.exports = function(grunt) {
           dest: '<%= config.folder %>'
         }]
       },
-
+      vendor: {
+        files: [{
+          expand: true,
+          cwd: 'vendor',
+          src: ['lib/**/*.js'],
+          dest: '<%= config.folder %>/vendor/'
+        }]
+      }
     },
 
+    autoicons: {
+      options: {
+        rename: function (name) {
+          if (name.indexOf('-active') !== -1) {
+            var base = name.replace('-active', '');
+            name = name + ', :active > .icon-' + base + ', .active > .icon-' + base;
+          }
+          return name;
+        },
+        repath: function (path) {
+          return path.replace('src/', '../');
+        }
+      },
+      icons: {
+        src: 'src/images/icons/*.png',
+        dest: 'src/css/icons.css'
+      }
+    }
   });
 
-  // // 开发
-  // grunt.registerTask('default', function() {
-  //   grunt.config('config.folder', 'temp');
-  //   grunt.task.run([
-  //     'clean:dev',
-  //     'sync',
-  //     'concat',
-  //     'connect',
-  //     'watch'
-  //   ]);
-  // });
-
-  // 打包
-  grunt.registerTask('default', function() {
-    grunt.config('config.folder', 'dist');
+  // 开发
+  grunt.registerTask('default', function () {
+    grunt.config('config.folder', 'temp');
     grunt.task.run([
+      'autoicons',
       'clean:dev',
       'sync',
       'concat',
+      'px2rem',
+      'connect',
+      'watch'
+    ]);
+  });
+
+  // 打包
+  grunt.registerTask('dist', function () {
+    grunt.config('config.folder', 'dist');
+    grunt.task.run([
+      'autoicons',
+      'clean:dev',
+      'sync',
+      'concat',
+      'px2rem',
       'cssmin',
       'uglify'
     ]);
   });
 
-
+  // 语法检查
+  grunt.registerTask('hint', function () {
+    grunt.config('config.folder', 'temp');
+    grunt.task.run(['jshint:dev']);
+  });
 
 };
