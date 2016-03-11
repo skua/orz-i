@@ -15,7 +15,7 @@
 #config 文件需要 独立配置
 
 
-orz-i/config/index.js
+在local/config.js中 配置
 
 
 ```js
@@ -34,21 +34,19 @@ module.exports = {
   },
     //domain
   domain:"http://io.orz-i.com",
-  db:{
-  	host:"127.0.0.1", //mongo 主机
-  	port:"27017",//mongo 端口
-  	username:" your user name",
-  	password:" your password ",
-  	collection:" mongo collection" //mongo 集合
+    // 数据库
+  database: {
+    host: ' ',
+    port: ' ',
+    username: ' ',
+    password: ' ',
+    dbname: ' ',
+    dialect: 'mysql',
   },
-  qn:{
-    ACCESS_KEY: '**N*****Nro***EHiIh********J*',
-    SECRET_KEY: '*****3zIEt**mNnF8***E5d2DSN*****',
-    Bucket_Name: 'orz-i',
-    Uptoken_Url: '/uptoken',
-    Domain: 'http://cdn.orz-i.com/'
-  },
+ 
     // 静态目录
   assets: path.join(__dirname, '../assets')
 }
 ```
+
+ 
