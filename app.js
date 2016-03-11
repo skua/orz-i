@@ -79,35 +79,34 @@ app.use(session(app, {
 
 
 // 去除HTML页面中的换行和空白
-// app.use(minifier({
-//   minifyJS: true,
-//   minifyCSS: true,
-//   collapseWhitespace: true,
-//   keepClosingSlash: true,
-//   removeComments: true,
-//   processScripts: ['text/swig-template']
-// }));
+app.use(minifier({
+  minifyJS: true,
+  minifyCSS: true,
+  collapseWhitespace: true,
+  keepClosingSlash: true,
+  removeComments: true,
+  processScripts: ['text/swig-template']
+}));
 
 // 微信授权
 global.wxRequired = function(app) {
 
   var url = config.domain + app.req.url;
+
+console.log(url);
+
   return function*(next) {
     var makeTime = function() {
       return parseInt(new Date().getTime() / 1000);
     }
-
     var accessToken = {};
     if ((!global.accessToken) || (!!global.accessToken && global.accessToken.expire_time < makeTime())) {
-
-
       if (!global.accessToken) {
-        console.log("不存在global.accessToken");
+        
       }
       if (!!global.accessToken && global.accessToken.expire_time < makeTime()) {
-        console.log("global.accessToken过期" + "old:" + global.accessToken.expire_time + ",new:" + makeTime());
+       
       }
-
       accessToken = yield service.accessToken();
       var access_token = {
         expire_time: makeTime() + 7200,
@@ -115,27 +114,20 @@ global.wxRequired = function(app) {
       };
       accessToken = yield access_token;
       global.accessToken = accessToken;
-
-      console.log("global.accessToken存在了，" + "old:" + global.accessToken.expire_time + ",new:" + makeTime());
-
+      
     } else {
-
-      console.log("存在global.accessToken，" + "old:" + global.accessToken.expire_time + ",new:" + makeTime());
+      
       accessToken = global.accessToken;
     }
     yield accessToken;
-
-
     var getJsApiTicket = {};
     if ((!global.jsapiTicket) || (!!global.jsapiTicket && global.jsapiTicket.expire_time < makeTime())) {
-
       if (!global.jsapiTicket) {
-        console.log("不存在global.jsapiTicket");
+        
       }
       if (!!global.jsapiTicket && global.jsapiTicket.expire_time < makeTime()) {
-        console.log("global.jsapiTicket过期" + "old:" + global.jsapiTicket.expire_time + ",new:" + makeTime());
+        
       }
-
 
       getJsApiTicket = yield service.ticket(accessToken.access_token);
       var jsapi_ticket = {
@@ -144,9 +136,9 @@ global.wxRequired = function(app) {
       };
       getJsApiTicket = yield jsapi_ticket;
       global.jsapiTicket = getJsApiTicket;
-      console.log("global.jsapiTicket存在了，" + "old:" + global.jsapiTicket.expire_time + ",new:" + makeTime());
+       
     } else {
-      console.log("存在global.jsapiTicket，" + "old:" + global.jsapiTicket.expire_time + ",new:" + makeTime());
+       
       getJsApiTicket = global.jsapiTicket;
     }
 

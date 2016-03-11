@@ -42,6 +42,32 @@ exports.oauth2Token = function(code) {
 };
 
 
+exports.boauth2Token = function(code) {
+  return request({
+    url: 'https://api.weixin.qq.com/sns/oauth2/access_token',
+    method: 'get',
+    qs: {
+      appid: config.bwxconfig.appid,
+      secret: config.bwxconfig.secret,
+      code:code,
+      grant_type:"authorization_code"
+    }
+  });
+};
+
+exports.yoauth2Token = function(code) {
+  return request({
+    url: 'https://api.weixin.qq.com/sns/oauth2/access_token',
+    method: 'get',
+    qs: {
+      appid: config.ywxconfig.appid,
+      secret: config.ywxconfig.secret,
+      code:code,
+      grant_type:"authorization_code"
+    }
+  });
+};
+
 exports.userinfo = function(access_token,openid) {
   return request({
     url: 'https://api.weixin.qq.com/sns/userinfo',

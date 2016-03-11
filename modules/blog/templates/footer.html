@@ -1,0 +1,25 @@
+<script src="https://nzfzaa1v6.qnssl.com/public/jquery-2.1.3.min.js"></script>
+<script src="https://nzfzaa1v6.qnssl.com/public/bootstrap.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+
+<div style="display:none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1257563083&web_id=1257563083" language="JavaScript"></script>
+</div>
+
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=43847137" charset="UTF-8"></script>
+{% if signature %}
+	<script>
+	var appId = "{{signature.appid}}";
+	var timestamp = "{{signature.timestamp}}";
+	var nonceStr = "{{signature.nonceStr}}";
+	var signature = "{{signature.signature}}";
+
+	{% if content %}
+		var title = "{{content.post_title}}";
+	{% endif %}
+	
+	</script>
+	<script src="{{ '/assets/blog/main.js'|version }}"></script>
+{% else %}
+	<script>  </script>
+{% endif %}
