@@ -1,4 +1,4 @@
-## orz-i
+## orz-i （wordpress的nodejs前端框架）
 
 一路走来玩wordpress已经5年了，伴随当初的欣喜成功进化成前端工程师也近3年
 
@@ -14,6 +14,8 @@
 
 #config 文件需要 独立配置
 
+
+重要 需要在wp的wp_post表中增加 createdAt 和 updatedAt 两个字段
 
 在local/config.js中 配置
 
@@ -48,5 +50,11 @@ module.exports = {
   assets: path.join(__dirname, '../assets')
 }
 ```
+
+建议使用pm2做守护进程 ，挂了自己会重启
+
+npm install pm2 -g
+
+在orz-i目录下 运行 pm2 start app.js
 
  
