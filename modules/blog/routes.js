@@ -22,25 +22,7 @@ router.get('/', function*(next) {
 });
 
 
-router.get('/console', function*(next) {
 
-	this.body = this.render('templates/console.html', {
- 
-	});
-
-});
-
-
-router.get('/test', function*(next) {
-	this.body = this.render('templates/test.html', {
- 
-	});
-});
-
-
-router.post('/test', function*(next) {
-	this.body = this.render(200);
-});
 
 
 router.get('/:post_name', function*(next) {

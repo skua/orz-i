@@ -11,7 +11,7 @@ var crypto = require('crypto');
 var versions = {};
 swig.setFilter('version', function (input) {
   if (!versions[input]) {
-    var file = path.join(config.assets, String(input).replace('/assets/', ''));
+    var file = path.join(config.static, String(input).replace('/static/', ''));
     try {
       var text = fs.readFileSync(file).toString();
       var version = crypto.createHash('md5').update(text).digest('hex').substring(0, 4).toUpperCase();

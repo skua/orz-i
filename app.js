@@ -25,7 +25,7 @@ var path = require('path');
 var _ = require('lodash');
 var cluster = require('cluster');
 var cpus = require('os').cpus();
-
+var logger = require('./support/logger');
 // 加载swig过滤器
 require('./config/filter');
 
@@ -36,7 +36,7 @@ var app = module.exports = koa();
 // 访问静态资源 版本号防缓存
 app.use(compose([
   function*(next) {
-    if (this.path.indexOf('/assets/') === 0) {
+    if (this.path.indexOf('/static/') === 0) {
       this.path = this.path.replace(/.v.[\d\w]+/i, '');
     }
     yield * next;
@@ -44,7 +44,7 @@ app.use(compose([
   assets(config.assets, {
     maxAge: 365 * 24 * 60 * 60,
     gzip: true,
-    prefix: '/assets'
+    prefix: '/static'
   })
 ]));
 
@@ -92,9 +92,6 @@ app.use(minifier({
 global.wxRequired = function(app) {
 
   var url = config.domain + app.req.url;
-
-console.log(url);
-
   return function*(next) {
     var makeTime = function() {
       return parseInt(new Date().getTime() / 1000);
@@ -136,15 +133,10 @@ console.log(url);
       };
       getJsApiTicket = yield jsapi_ticket;
       global.jsapiTicket = getJsApiTicket;
-       
     } else {
-       
       getJsApiTicket = global.jsapiTicket;
     }
-
     yield getJsApiTicket;
-
-
     var signature = sign(getJsApiTicket.jsapi_ticket, url);
     signature.appid = config.wxconfig.appid;
     signature = yield signature;
@@ -224,6 +216,46 @@ app.use(function*(next) {
 
   yield next;
 });
+
+
+// 全局错误处理
+app.use(function*(next) {
+  var error = null;
+  try {
+    logger.info('Request:', {
+      url: this.request.url,
+      ip: this.request.headers['x-real-ip'],
+    });
+
+    yield * next;
+  } catch (e) {
+    error = e;
+    this.status = e.status || 500;
+  } finally {
+    this.status = this.status === 405 ? 404 : this.status;
+    if (this.status !== 200) {
+      // 打印400及以上的错误日志
+      if (this.status >= 400 || error) {
+        logger.error(error || this.status, {
+          url: this.request.url,
+          ip: this.request.headers['x-real-ip'],
+        });
+      }
+      if (this.status === 404 || error) {
+        var mime = this.accepts(['json', 'html']);
+        if (mime === 'json') {
+          this.body = this.render(this.status, this.status === 404 ? '抱歉，服务未找到' : '服务器异常，请稍后再试');
+          this.status = 200;
+        } else {
+          this.body = this.render(this.status === 404 ? config.errPage[404] : config.errPage[500]);
+        }
+      } else if (this.status === 403) {
+        this.body = this.render(config.errPage[403]);
+      }
+    }
+  }
+});
+
 
 
 // 遍历目录加载路由模块

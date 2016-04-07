@@ -40,7 +40,7 @@ module.exports = helper.merge({
   //   dialect: 'mysql',
   // },
  
+   // 静态目录
+  static: path.join(__dirname, environment.isOnline === false ? '../static/tmp' : '../static/dist'),
  
-  // 静态目录
-  assets: path.join(__dirname, '../assets')
 }, environment);
