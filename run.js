@@ -32,15 +32,17 @@ if (config.isOnline) {
 	});
 }
 
-console.info('启动中....');
-child_process.execSync('node app.js', {
-	stdio: 'inherit',
-	cwd: './',
-});
 
-//建议用pm2守护
+//node
 // console.info('启动中....');
-// child_process.execSync('pm2 start app.js', {
+// child_process.execSync('node app.js', {
 // 	stdio: 'inherit',
 // 	cwd: './',
 // });
+
+//建议用pm2守护
+console.info('启动中....');
+child_process.execSync('pm2 start app.js', {
+	stdio: 'inherit',
+	cwd: './',
+});

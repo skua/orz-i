@@ -35,7 +35,7 @@ module.exports = {
     secret: "4ebe****c709b80b7df7ee4639****2c", // 秘钥
   },
     //domain
-  domain:"http://io.orz-i.com",
+  domain:"http://orz-i.com",
     // 数据库
   database: {
     host: ' ',
