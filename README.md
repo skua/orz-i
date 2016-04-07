@@ -45,16 +45,22 @@ module.exports = {
     dbname: ' ',
     dialect: 'mysql',
   },
- 
-    // 静态目录
-  assets: path.join(__dirname, '../assets')
+
+    //是否线上环境
+  isOnline: false,
+
+  //报错页面
+
+  errPage: {
+    "404": "../orz-i/modules/common/templates/404.html",
+    "500": "../orz-i/modules/common/templates/500.html"
+  }
+
 }
 ```
 
 建议使用pm2做守护进程 ，挂了自己会重启
 
-npm install pm2 -g
-
-在orz-i目录下 运行 pm2 start app.js
+node run.js 启动项目
 
  
