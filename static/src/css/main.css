@@ -1,0 +1,9 @@
+* { padding: 0px; margin: 0px; }
+.bg img { position: absolute; display: block; width: 100%;}
+.content { width: 300px; text-align: center; margin: 0 auto; top: 150px; font-size: 18px; position: relative; }
+.your-code { display: none; }
+.no-code { display: none; }
+.msg-info { display: none; }
+.code-info { position: absolute; top: 780px; font-size: 40px; text-align: center; width: 100%; color: #9e9e9e; height: 56px; display: block; z-index: 2; user-select: text; -webkit-user-select: text; }
+.aqy { width: 100%; height: 108px; display: block; position: absolute; top: 900px; user-select: none; -webkit-user-select: none; }
+.link { width: 100%; height: 20px; display: block; position: absolute; top: 488px; z-index: 2; }
