@@ -41,7 +41,7 @@ app.use(compose([
     }
     yield * next;
   },
-  assets(config.assets, {
+  assets(config.static, {
     maxAge: 365 * 24 * 60 * 60,
     gzip: true,
     prefix: '/static'
